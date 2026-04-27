@@ -4,781 +4,467 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lamar Alhimali | Machine Learning Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    :root {
-      --bg: #07111f;
-      --bg-soft: #0d1b2f;
-      --card: rgba(255, 255, 255, 0.08);
-      --card-strong: rgba(255, 255, 255, 0.12);
-      --text: #f8fafc;
-      --muted: #b6c2d6;
-      --line: rgba(255, 255, 255, 0.16);
-      --primary: #7c3aed;
-      --secondary: #06b6d4;
-      --success: #22c55e;
-      --warning: #f59e0b;
-      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
-      --shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(124, 58, 237, 0.32), transparent 32%),
-        radial-gradient(circle at top right, rgba(6, 182, 212, 0.25), transparent 35%),
-        var(--bg);
-      color: var(--text);
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #eef2f7;
+      color: #1f2937;
       line-height: 1.7;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(1120px, 92%);
-      margin: auto;
-    }
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(7, 17, 31, 0.82);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav-inner {
-      width: min(1120px, 92%);
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-    }
-
-    .logo {
-      font-size: 1.1rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
-
-    .logo span {
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 50px;
-      align-items: center;
-      padding-top: 110px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.6rem, 6vw, 5.2rem);
-      line-height: 1.02;
-      letter-spacing: -0.07em;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 span {
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero p {
-      max-width: 650px;
-      color: var(--muted);
-      font-size: 1.1rem;
-      margin-bottom: 28px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 13px 20px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: 0.25s ease;
-    }
-
-    .btn-primary {
-      background: var(--gradient);
+    header {
+      background: linear-gradient(135deg, #020617, #0f172a, #2563eb);
       color: white;
-      box-shadow: 0 18px 35px rgba(124, 58, 237, 0.28);
-    }
-
-    .btn-outline {
-      border: 1px solid var(--line);
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .stat {
-      background: var(--card);
-      border: 1px solid var(--line);
-      padding: 18px;
-      border-radius: 20px;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.5rem;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .profile-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.06));
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .profile-card::before {
-      content: "";
-      position: absolute;
-      inset: -80px auto auto -80px;
-      width: 200px;
-      height: 200px;
-      background: rgba(6, 182, 212, 0.25);
-      filter: blur(30px);
-      border-radius: 50%;
-    }
-
-    .avatar {
-      width: 170px;
-      height: 170px;
-      border-radius: 34px;
-      background: var(--gradient);
-      display: grid;
-      place-items: center;
-      font-size: 4rem;
-      font-weight: 800;
-      margin-bottom: 22px;
-      position: relative;
-    }
-
-    .profile-card h2 {
-      font-size: 1.8rem;
-      margin-bottom: 8px;
-    }
-
-    .profile-card p {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .profile-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .profile-list div {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--muted);
-    }
-
-    section {
-      padding: 90px 0;
-    }
-
-    .section-head {
-      margin-bottom: 34px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -0.05em;
-      margin-bottom: 10px;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      max-width: 720px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      padding: 26px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-    }
-
-    .card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 10px;
-    }
-
-    .card p, .card li {
-      color: var(--muted);
-    }
-
-    .icon {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border-radius: 16px;
-      background: rgba(124, 58, 237, 0.18);
-      color: #c4b5fd;
-      font-size: 1.2rem;
-      margin-bottom: 16px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .tag {
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    .project-main {
-      background: linear-gradient(135deg, rgba(124, 58, 237, 0.22), rgba(6, 182, 212, 0.12));
-      border: 1px solid var(--line);
-      border-radius: 32px;
-      padding: 34px;
-      box-shadow: var(--shadow);
-    }
-
-    .project-main h3 {
-      font-size: clamp(1.7rem, 3vw, 2.5rem);
-      letter-spacing: -0.04em;
-      margin-bottom: 14px;
-    }
-
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 18px 0 24px;
-    }
-
-    .meta-pill {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .lab-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 260px;
-    }
-
-    .lab-number {
-      font-size: 0.85rem;
-      color: #67e8f9;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .link-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .mini-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid var(--line);
-      color: var(--text);
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 16px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 18px;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: rgba(255,255,255,0.05);
-    }
-
-    .timeline-item strong {
-      color: #67e8f9;
-    }
-
-    .contact-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 16px;
-    }
-
-    footer {
-      padding: 34px 0;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
+      padding: 90px 25px;
       text-align: center;
     }
 
-    @media (max-width: 900px) {
-      .hero, .grid-2, .grid-3, .contact-box {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
     }
 
-    @media (max-width: 560px) {
-      .timeline-item {
-        grid-template-columns: 1fr;
-      }
+    header h2 {
+      font-size: 27px;
+      font-weight: 500;
+      color: #dbeafe;
+      margin-bottom: 15px;
+    }
 
-      .project-main, .card, .profile-card {
-        padding: 22px;
-      }
+    header p {
+      max-width: 900px;
+      margin: auto;
+      font-size: 18px;
+      color: #e5e7eb;
+    }
+
+    nav {
+      background: white;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #1d4ed8;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 700;
+    }
+
+    section {
+      width: 90%;
+      max-width: 1150px;
+      margin: 30px auto;
+      background: white;
+      padding: 34px;
+      border-radius: 22px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #1e40af;
+      font-size: 29px;
+      margin-bottom: 15px;
+      border-bottom: 3px solid #dbeafe;
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #f8fafc;
+      border-left: 6px solid #2563eb;
+      padding: 22px;
+      border-radius: 16px;
+    }
+
+    .metric {
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: white;
+      text-align: center;
+      padding: 28px;
+      border-radius: 18px;
+    }
+
+    .metric span {
+      display: block;
+      font-size: 36px;
+      font-weight: 800;
+      margin-top: 8px;
+    }
+
+    .pipeline {
+      background: #eff6ff;
+      border: 2px dashed #2563eb;
+      padding: 22px;
+      border-radius: 16px;
+      text-align: center;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .note {
+      background: #fff7ed;
+      border-left: 6px solid #f97316;
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      font-size: 15px;
+    }
+
+    th, td {
+      border: 1px solid #d1d5db;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background: #1e40af;
+      color: white;
+    }
+
+    tr:nth-child(even) { background: #f8fafc; }
+
+    .winner {
+      background: #dbeafe !important;
+      font-weight: 800;
+    }
+
+    ul {
+      margin-left: 22px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 9px 14px;
+      margin: 6px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .links a, .card a {
+      display: inline-block;
+      background: #1d4ed8;
+      color: white;
+      padding: 11px 16px;
+      margin-top: 10px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .links a {
+      margin: 8px 8px 8px 0;
+    }
+
+    footer {
+      background: #020617;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 35px;
     }
   </style>
 </head>
+
 <body>
-  <nav class="navbar">
-    <div class="nav-inner">
-      <a href="#home" class="logo">Lamar <span>Alhimali</span></a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#project">Project</a></li>
-        <li><a href="#labs">Labs</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+
+<header>
+  <h1>Lamar Alhimali</h1>
+  <h2>Machine Learning Portfolio | Computer Science Student</h2>
+  <p>
+    A professional portfolio presenting my CS4082 Machine Learning final project,
+    course labs, technical report, and healthcare AI work on early Parkinson’s disease detection.
+  </p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#project">Project</a>
+  <a href="#pipeline">Pipeline</a>
+  <a href="#results">Results</a>
+  <a href="#labs">Labs</a>
+  <a href="#team">Team</a>
+  <a href="#links">Links</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am Lamar Alhimali, a Computer Science student at Effat University. I am interested in
+    machine learning, data science, and healthcare artificial intelligence. This portfolio shows
+    my Machine Learning final project, course labs, skills, results, and project files.
+  </p>
+</section>
+
+<section id="project">
+  <h2>Final Machine Learning Project</h2>
+  <h3>Early Detection of Parkinson’s Disease Using Supervised Machine Learning</h3>
+  <p>
+    This project uses supervised machine learning to support early detection of Parkinson’s disease
+    using biomedical and clinical features. The main challenge is class imbalance because disease
+    cases may be fewer than control cases. If imbalance is not handled correctly, a model may look
+    accurate but still miss real Parkinson’s cases.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Clinical Problem</h3>
+      <p>Parkinson’s disease can be difficult to detect early because symptoms may be gradual and subtle.</p>
     </div>
-  </nav>
 
-  <main>
-    <section id="home" class="hero container">
-      <div>
-        <div class="badge"><i class="fa-solid fa-brain"></i> Machine Learning Portfolio | Computer Science Student</div>
-        <h1>Building AI solutions for <span>healthcare problems.</span></h1>
-        <p>
-          I am Lamar Alhimali, a Computer Science student at Effat University. This portfolio presents my Machine Learning final project, course labs, technical skills, and GitHub notebook work.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#project"><i class="fa-solid fa-chart-line"></i> View Final Project</a>
-          <a class="btn btn-outline" href="#labs"><i class="fa-brands fa-github"></i> View Lab Notebooks</a>
-        </div>
-        <div class="stats">
-          <div class="stat"><strong>3</strong><span>ML lab notebooks</span></div>
-          <div class="stat"><strong>7+</strong><span>models explored</span></div>
-          <div class="stat"><strong>1</strong><span>healthcare AI project</span></div>
-        </div>
-      </div>
-
-      <aside class="profile-card">
-        <div class="avatar">LA</div>
-        <h2>Lamar Alhimali</h2>
-        <p>Junior Computer Science student focused on machine learning, data analysis, and healthcare artificial intelligence.</p>
-        <div class="profile-list">
-          <div><i class="fa-solid fa-building-columns"></i> Effat University</div>
-          <div><i class="fa-solid fa-laptop-code"></i> Computer Science</div>
-          <div><i class="fa-solid fa-location-dot"></i> Jeddah, Saudi Arabia</div>
-          <div><i class="fa-solid fa-envelope"></i> lamarghgh@gmail.com</div>
-        </div>
-      </aside>
-    </section>
-
-    <section id="about" class="container">
-      <div class="section-head">
-        <h2>About Me</h2>
-        <p>This section is only about me, so team members are removed from the personal profile. Team members are included only in the final project section.</p>
-      </div>
-      <div class="grid-2">
-        <div class="card">
-          <div class="icon"><i class="fa-solid fa-user-graduate"></i></div>
-          <h3>Student Profile</h3>
-          <p>
-            I am interested in using computer science to solve real problems. My current focus is machine learning, data preprocessing, model evaluation, and healthcare AI applications.
-          </p>
-        </div>
-        <div class="card">
-          <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
-          <h3>Portfolio Goal</h3>
-          <p>
-            The goal of this website is to show my final Machine Learning project, my lab notebook links, my technical skills, and my learning progress in a professional way.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="container">
-      <div class="section-head">
-        <h2>Technical Skills</h2>
-        <p>These skills connect directly to my labs and final project work.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card">
-          <div class="icon"><i class="fa-brands fa-python"></i></div>
-          <h3>Programming & Data</h3>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">NumPy</span>
-            <span class="tag">Matplotlib</span>
-            <span class="tag">Seaborn</span>
-          </div>
-        </div>
-        <div class="card">
-          <div class="icon"><i class="fa-solid fa-robot"></i></div>
-          <h3>Machine Learning</h3>
-          <div class="tags">
-            <span class="tag">Scikit-learn</span>
-            <span class="tag">Classification</span>
-            <span class="tag">Model Training</span>
-            <span class="tag">Cross-validation</span>
-            <span class="tag">Evaluation Metrics</span>
-          </div>
-        </div>
-        <div class="card">
-          <div class="icon"><i class="fa-solid fa-code-branch"></i></div>
-          <h3>Tools</h3>
-          <div class="tags">
-            <span class="tag">Jupyter Notebook</span>
-            <span class="tag">Google Colab</span>
-            <span class="tag">GitHub</span>
-            <span class="tag">VS Code</span>
-            <span class="tag">GitHub Pages</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="project" class="container">
-      <div class="section-head">
-        <h2>Final Machine Learning Project</h2>
-        <p>The team information is placed here only because the final project is the group/team work section.</p>
-      </div>
-      <div class="project-main">
-        <h3>Early Detection of Parkinson’s Disease Using Supervised Machine Learning</h3>
-        <p>
-          This project uses supervised machine learning to support early detection of Parkinson’s disease using biomedical and clinical features. The main challenge is class imbalance, because medical datasets may contain fewer disease cases than control cases. The project focuses on building models that can detect Parkinson’s cases with strong recall.
-        </p>
-        <div class="project-meta">
-          <span class="meta-pill"><i class="fa-solid fa-heart-pulse"></i> Healthcare AI</span>
-          <span class="meta-pill"><i class="fa-solid fa-database"></i> Biomedical Data</span>
-          <span class="meta-pill"><i class="fa-solid fa-scale-balanced"></i> Class Imbalance</span>
-          <span class="meta-pill"><i class="fa-solid fa-magnifying-glass-chart"></i> Model Evaluation</span>
-        </div>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Problem</h3>
-            <p>Parkinson’s disease can be difficult to detect early because symptoms may be subtle.</p>
-          </div>
-          <div class="card">
-            <h3>Goal</h3>
-            <p>Train machine learning models that can identify Parkinson’s cases accurately and reduce missed positive cases.</p>
-          </div>
-          <div class="card">
-            <h3>Challenge</h3>
-            <p>Class imbalance may make models biased toward the majority class, so recall is important.</p>
-          </div>
-        </div>
-        <div class="link-row">
-          <a class="mini-link" href="https://github.com/" target="_blank"><i class="fa-brands fa-github"></i> GitHub Profile</a>
-          <a class="mini-link" href="Technical_Report%20(2)(4).pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> Final Technical Report</a>
-          <a class="mini-link" href="#labs"><i class="fa-solid fa-book-open"></i> Lab Notebooks</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="workflow" class="container">
-      <div class="section-head">
-        <h2>Project Workflow</h2>
-        <p>A clear pipeline showing what was done in the machine learning project.</p>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <strong>Step 1</strong>
-          <div><h3>Dataset Understanding</h3><p>Reviewed the dataset, checked the target classes, and understood the meaning of the biomedical features.</p></div>
-        </div>
-        <div class="timeline-item">
-          <strong>Step 2</strong>
-          <div><h3>Preprocessing</h3><p>Checked missing values, removed irrelevant columns, encoded categorical data when needed, and applied feature scaling.</p></div>
-        </div>
-        <div class="timeline-item">
-          <strong>Step 3</strong>
-          <div><h3>Exploratory Data Analysis</h3><p>Studied class distribution, feature patterns, correlations, and important visualizations.</p></div>
-        </div>
-        <div class="timeline-item">
-          <strong>Step 4</strong>
-          <div><h3>Model Training</h3><p>Trained supervised machine learning models such as Logistic Regression, Decision Tree, Random Forest, SVM, KNN, Naive Bayes, and boosting models.</p></div>
-        </div>
-        <div class="timeline-item">
-          <strong>Step 5</strong>
-          <div><h3>Evaluation</h3><p>Compared models using accuracy, precision, recall, F1-score, AUC-ROC, confusion matrices, and cross-validation.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="labs" class="container">
-      <div class="section-head">
-        <h2>Course Lab Notebooks</h2>
-        <p>These links open the uploaded Lab 2, Lab 3, Lab 4 notebooks and the final technical report. To make them work online, upload these files to the same GitHub repository as this website.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card lab-card">
-          <div>
-            <div class="lab-number">Lab 2</div>
-            <h3>Data Preprocessing & Analysis</h3>
-            <p>Notebook showing cleaning, preparation, and basic analysis steps used before training models.</p>
-            <div class="tags">
-              <span class="tag">Pandas</span>
-              <span class="tag">EDA</span>
-              <span class="tag">Cleaning</span>
-            </div>
-          </div>
-          <div class="link-row">
-            <a class="mini-link" href="Lab2_ML_Sklearn%20(4).ipynb" target="_blank"><i class="fa-solid fa-book"></i> Open Notebook</a>
-          </div>
-        </div>
-
-        <div class="card lab-card">
-          <div>
-            <div class="lab-number">Lab 3</div>
-            <h3>Visualization & Machine Learning</h3>
-            <p>Notebook showing visual analysis, model preparation, training steps, and interpretation of results.</p>
-            <div class="tags">
-              <span class="tag">Visualization</span>
-              <span class="tag">Modeling</span>
-              <span class="tag">Scikit-learn</span>
-            </div>
-          </div>
-          <div class="link-row">
-            <a class="mini-link" href="Lab3_lamarAlhimali%20(6)(1).ipynb" target="_blank"><i class="fa-solid fa-book"></i> Open Notebook</a>
-          </div>
-        </div>
-
-        <div class="card lab-card">
-          <div>
-            <div class="lab-number">Lab 4</div>
-            <h3>Linear Regression</h3>
-            <p>Notebook showing linear regression concepts, prediction, model fitting, and result interpretation.</p>
-            <div class="tags">
-              <span class="tag">Linear Regression</span>
-              <span class="tag">Prediction</span>
-              <span class="tag">Model Fit</span>
-            </div>
-          </div>
-          <div class="link-row">
-            <a class="mini-link" href="Lab4_Linear_Regression_Lamar%20(3)(1).ipynb" target="_blank"><i class="fa-solid fa-book"></i> Open Notebook</a>
-          </div>
-        </div>
-
-        <div class="card lab-card">
-          <div>
-            <div class="lab-number">Final Report</div>
-            <h3>Technical Report</h3>
-            <p>Final report for the Parkinson’s disease machine learning project, including methodology, results, discussion, and conclusion.</p>
-            <div class="tags">
-              <span class="tag">Parkinson’s Disease</span>
-              <span class="tag">Gradient Boosting</span>
-              <span class="tag">ROC-AUC</span>
-            </div>
-          </div>
-          <div class="link-row">
-            <a class="mini-link" href="Technical_Report%20(2)(4).pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> Open Report</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="team" class="container">
-      <div class="section-head">
-        <h2>Project Team</h2>
-        <p>This team section is only for the final Machine Learning project.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card">
-          <div class="icon"><i class="fa-solid fa-user"></i></div>
-          <h3>Lamar Alhimali</h3>
-          <p>Machine Learning project member. Add your specific responsibility here, such as preprocessing, modeling, evaluation, or website presentation.</p>
-        </div>
-        <div class="card">
-          <div class="icon"><i class="fa-solid fa-user-plus"></i></div>
-          <h3>Linah Aljifri</h3>
-          <p>Project team member. Student ID: S23108575.</p>
-        </div>
-        <div class="card">
-          <div class="icon"><i class="fa-solid fa-user-plus"></i></div>
-          <h3>Juri Bajaba</h3>
-          <p>Project team member. Student ID: S23108574.</p>
-        </div>
-      </div>
-      <div class="grid-3" style="margin-top:24px;">
-        <div class="card">
-          <div class="icon"><i class="fa-solid fa-user-plus"></i></div>
-          <h3>Noor Alamoudi</h3>
-          <p>Project team member. Student ID: S23108312.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="container">
-      <div class="section-head">
-        <h2>Contact & Links</h2>
-        <p>Use this section for your professional links and portfolio submission links.</p>
-      </div>
-      <div class="contact-box">
-        <a class="card" href="mailto:lamarghgh@gmail.com">
-          <div class="icon"><i class="fa-solid fa-envelope"></i></div>
-          <h3>Email</h3>
-          <p>lamarghgh@gmail.com</p>
-        </a>
-        <a class="card" href="https://github.com/" target="_blank">
-          <div class="icon"><i class="fa-brands fa-github"></i></div>
-          <h3>GitHub</h3>
-          <p>View my repositories and notebook work.</p>
-        </a>
-        <a class="card" href="https://www.linkedin.com/search/results/all/?keywords=Lamar%20Alhimali" target="_blank">
-          <div class="icon"><i class="fa-brands fa-linkedin"></i></div>
-          <h3>LinkedIn</h3>
-          <p>Add your professional LinkedIn profile link.</p>
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>© 2026 Lamar Alhimali. Machine Learning Portfolio | Effat University.</p>
+    <div class="card">
+      <h3>Project Goal</h3>
+      <p>Build a supervised ML pipeline that detects Parkinson’s cases with strong recall and ROC-AUC.</p>
     </div>
-  </footer>
 
-  <script>
-    const nav = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        nav.style.background = 'rgba(7, 17, 31, 0.95)';
-      } else {
-        nav.style.background = 'rgba(7, 17, 31, 0.82)';
-      }
-    });
-  </script>
+    <div class="card">
+      <h3>Main Challenge</h3>
+      <p>Class imbalance may cause the model to favor the majority class and miss disease cases.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Dataset and Preprocessing</h2>
+  <p>
+    The project used Parkinson’s disease datasets containing biomedical and clinical features.
+    Preprocessing was required to clean the data, prepare features, reduce bias, and support fair model comparison.
+  </p>
+
+  <div class="grid">
+    <div class="card">Checked missing values</div>
+    <div class="card">Analyzed class distribution</div>
+    <div class="card">Studied feature correlations</div>
+    <div class="card">Removed irrelevant identifier columns</div>
+    <div class="card">Applied encoding when needed</div>
+    <div class="card">Applied feature scaling</div>
+    <div class="card">Used stratified train/test split</div>
+    <div class="card">Applied SMOTE only on the training set</div>
+  </div>
+</section>
+
+<section id="pipeline">
+  <h2>Machine Learning Pipeline</h2>
+  <div class="pipeline">
+    Raw Dataset → EDA → Cleaning → Encoding & Scaling → Stratified Train/Test Split → SMOTE →
+    Model Training → Hyperparameter Tuning → Evaluation → Final Model Selection
+  </div>
+
+  <div class="note">
+    SMOTE was applied only after the train/test split and only on the training set to prevent data leakage.
+  </div>
+</section>
+
+<section>
+  <h2>Models Used</h2>
+  <span class="tag">Logistic Regression</span>
+  <span class="tag">Support Vector Machine</span>
+  <span class="tag">Random Forest</span>
+  <span class="tag">K-Nearest Neighbors</span>
+  <span class="tag">Naive Bayes</span>
+  <span class="tag">Gradient Boosting</span>
+  <span class="tag">Ensemble Model</span>
+</section>
+
+<section id="results">
+  <h2>Final Model Results</h2>
+  <p>
+    The final selected model was the <strong>Tuned Gradient Boosting Classifier</strong>.
+    It achieved the strongest medically important results, especially recall, F1-score, and ROC-AUC.
+  </p>
+
+  <div class="grid">
+    <div class="metric">Recall <span>0.954</span></div>
+    <div class="metric">F1-score <span>0.913</span></div>
+    <div class="metric">ROC-AUC <span>0.966</span></div>
+    <div class="metric">Accuracy <span>0.867</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Model Comparison</h2>
+  <table>
+    <tr>
+      <th>Model</th>
+      <th>Accuracy</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1-score</th>
+      <th>ROC-AUC</th>
+    </tr>
+    <tr>
+      <td>Logistic Regression</td>
+      <td>0.850</td>
+      <td>0.820</td>
+      <td>0.800</td>
+      <td>0.810</td>
+      <td>0.840</td>
+    </tr>
+    <tr>
+      <td>Support Vector Machine</td>
+      <td>0.880</td>
+      <td>0.850</td>
+      <td>0.830</td>
+      <td>0.840</td>
+      <td>0.870</td>
+    </tr>
+    <tr>
+      <td>Random Forest</td>
+      <td>0.910</td>
+      <td>0.890</td>
+      <td>0.880</td>
+      <td>0.880</td>
+      <td>0.920</td>
+    </tr>
+    <tr>
+      <td>KNN</td>
+      <td>0.830</td>
+      <td>0.800</td>
+      <td>0.760</td>
+      <td>0.780</td>
+      <td>0.820</td>
+    </tr>
+    <tr>
+      <td>Naive Bayes</td>
+      <td>0.810</td>
+      <td>0.780</td>
+      <td>0.740</td>
+      <td>0.760</td>
+      <td>0.800</td>
+    </tr>
+    <tr class="winner">
+      <td>Gradient Boosting</td>
+      <td>0.867</td>
+      <td>0.875</td>
+      <td>0.954</td>
+      <td>0.913</td>
+      <td>0.966</td>
+    </tr>
+  </table>
+</section>
+
+<section>
+  <h2>Why Gradient Boosting Was Selected</h2>
+  <p>
+    Gradient Boosting was selected because it achieved the highest recall, F1-score, and ROC-AUC.
+    In medical screening, recall is very important because a false negative means a real Parkinson’s
+    case may be missed. The model also showed strong class separation with ROC-AUC of 0.966.
+  </p>
+</section>
+
+<section>
+  <h2>Key Findings</h2>
+  <ul>
+    <li>Class imbalance was one of the most important challenges in this project.</li>
+    <li>SMOTE improved the ability of the model to detect Parkinson’s cases.</li>
+    <li>Accuracy alone was not enough for evaluating a healthcare screening model.</li>
+    <li>Recall, F1-score, and ROC-AUC were more meaningful for medical interpretation.</li>
+    <li>Gradient Boosting achieved the best balance for early Parkinson’s disease detection.</li>
+  </ul>
+</section>
+
+<section id="labs">
+  <h2>Course Labs and Notebooks</h2>
+  <p>
+    These notebooks show the practical machine learning skills practiced during the course.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Lab 2</h3>
+      <p>Machine learning practice using Scikit-learn.</p>
+      <a href="https://github.com/lamarghgh-maker/lamar-portfolio/blob/main/Lab2_ML_Sklearn%20(4).ipynb" target="_blank">Open Lab 2</a>
+    </div>
+
+    <div class="card">
+      <h3>Lab 3</h3>
+      <p>Data preprocessing, classification, and model evaluation.</p>
+      <a href="https://github.com/lamarghgh-maker/lamar-portfolio/blob/main/Lab3_lamarAlhimali%20(6).ipynb" target="_blank">Open Lab 3</a>
+    </div>
+
+    <div class="card">
+      <h3>Lab 4</h3>
+      <p>Linear regression, prediction, and visualization.</p>
+      <a href="https://github.com/lamarghgh-maker/lamar-portfolio/blob/main/Lab4_Linear_Regression_Lamar%20(3).ipynb" target="_blank">Open Lab 4</a>
+    </div>
+
+    <div class="card">
+      <h3>Final ML Project Notebook</h3>
+      <p>Complete ML phases for Parkinson’s disease detection.</p>
+      <a href="https://github.com/lamarghgh-maker/lamar-portfolio/blob/main/ML%20all%20phases.ipynb" target="_blank">Open Final Notebook</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Skills Used</h2>
+  <span class="tag">Python</span>
+  <span class="tag">Pandas</span>
+  <span class="tag">NumPy</span>
+  <span class="tag">Matplotlib</span>
+  <span class="tag">Seaborn</span>
+  <span class="tag">Scikit-learn</span>
+  <span class="tag">SMOTE</span>
+  <span class="tag">EDA</span>
+  <span class="tag">Classification</span>
+  <span class="tag">Model Evaluation</span>
+  <span class="tag">GitHub Pages</span>
+</section>
+
+<section id="team">
+  <h2>Team Members</h2>
+  <ul>
+    <li><strong>Lamar Alhimali</strong> – S23108185</li>
+    <li><strong>Linah Aljifri</strong> – S23108575</li>
+    <li><strong>Juri Bajaba</strong> – S23108574</li>
+    <li><strong>Noor Alamoudi</strong> – S23108312</li>
+  </ul>
+</section>
+
+<section id="links" class="links">
+  <h2>Project Links</h2>
+
+  <a href="https://lamarghgh-maker.github.io/lamar-portfolio/" target="_blank">Portfolio Website</a>
+  <a href="https://github.com/lamarghgh-maker/lamar-portfolio" target="_blank">GitHub Repository</a>
+  <a href="https://github.com/lamarghgh-maker/lamar-portfolio/blob/main/Technical_Report%20(2).pdf" target="_blank">Technical Report PDF</a>
+  <a href="https://github.com/lamarghgh-maker/lamar-portfolio/blob/main/ML%20all%20phases.ipynb" target="_blank">Final Project Notebook</a>
+
+  <p style="margin-top: 15px;">
+    Poster and presentation links can be added here after uploading them to the repository.
+  </p>
+</section>
+
+<footer>
+  <p>© 2026 Lamar Alhimali | Machine Learning Portfolio | Effat University</p>
+</footer>
+
 </body>
 </html>
 
