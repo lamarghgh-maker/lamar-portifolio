@@ -1,69 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lamar Alhimali | ML Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lamar Alhimali | Parkinson’s Disease ML Portfolio</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f7fb;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #eef2f7;
       color: #1f2937;
       line-height: 1.7;
     }
 
     header {
-      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      background: linear-gradient(135deg, #020617, #0f172a, #2563eb);
       color: white;
-      padding: 70px 25px;
+      padding: 80px 25px;
       text-align: center;
     }
 
     header h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      font-size: 46px;
+      margin-bottom: 12px;
+    }
+
+    header h2 {
+      font-size: 26px;
+      font-weight: 500;
+      margin-bottom: 15px;
+      color: #dbeafe;
     }
 
     header p {
       font-size: 18px;
-      opacity: 0.95;
+      max-width: 850px;
+      margin: auto;
+      color: #e5e7eb;
     }
 
     nav {
       background: white;
-      padding: 15px;
+      padding: 16px;
       text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
       position: sticky;
       top: 0;
+      z-index: 100;
     }
 
     nav a {
-      margin: 0 12px;
-      text-decoration: none;
       color: #1d4ed8;
-      font-weight: bold;
+      text-decoration: none;
+      margin: 0 14px;
+      font-weight: 700;
     }
 
     section {
-      width: 88%;
-      max-width: 1100px;
+      width: 90%;
+      max-width: 1150px;
       margin: 30px auto;
       background: white;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      padding: 32px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
 
     h2 {
-      color: #1d4ed8;
+      color: #1e40af;
+      font-size: 28px;
       margin-bottom: 15px;
       border-bottom: 3px solid #dbeafe;
       padding-bottom: 8px;
@@ -71,55 +78,63 @@
 
     h3 {
       color: #0f172a;
-      margin: 15px 0 8px;
-    }
-
-    ul {
-      margin-left: 25px;
+      margin-bottom: 8px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 18px;
       margin-top: 20px;
     }
 
     .card {
-      background: #eff6ff;
+      background: #f8fafc;
+      border-left: 6px solid #2563eb;
       padding: 22px;
-      border-radius: 15px;
-      border-left: 5px solid #1d4ed8;
+      border-radius: 16px;
     }
 
     .metric {
-      text-align: center;
-      background: #0f172a;
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
       color: white;
-      padding: 25px;
-      border-radius: 15px;
+      text-align: center;
+      padding: 26px;
+      border-radius: 18px;
     }
 
-    .metric h3 {
-      color: white;
-      font-size: 30px;
+    .metric span {
+      display: block;
+      font-size: 34px;
+      font-weight: 800;
+      margin-top: 8px;
+    }
+
+    .pipeline {
+      background: #eff6ff;
+      border: 2px dashed #2563eb;
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+      font-weight: 700;
+      color: #0f172a;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 15px;
-      overflow-x: auto;
+      margin-top: 18px;
+      font-size: 15px;
     }
 
     th, td {
-      border: 1px solid #ddd;
+      border: 1px solid #d1d5db;
       padding: 12px;
       text-align: center;
     }
 
     th {
-      background: #1d4ed8;
+      background: #1e40af;
       color: white;
     }
 
@@ -127,27 +142,51 @@
       background: #f8fafc;
     }
 
-    .highlight {
+    .winner {
+      background: #dbeafe !important;
+      font-weight: 800;
+    }
+
+    ul {
+      margin-left: 22px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
       background: #dbeafe;
-      font-weight: bold;
+      color: #1e40af;
+      padding: 9px 14px;
+      margin: 6px;
+      border-radius: 999px;
+      font-weight: 700;
     }
 
     .links a {
       display: inline-block;
-      margin: 8px 8px 8px 0;
       background: #1d4ed8;
       color: white;
-      padding: 10px 16px;
-      border-radius: 8px;
+      padding: 12px 18px;
+      margin: 8px 8px 8px 0;
+      border-radius: 10px;
       text-decoration: none;
+      font-weight: 700;
+    }
+
+    .note {
+      background: #fff7ed;
+      border-left: 6px solid #f97316;
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 15px;
     }
 
     footer {
-      text-align: center;
-      background: #0f172a;
+      background: #020617;
       color: white;
+      text-align: center;
       padding: 25px;
-      margin-top: 30px;
+      margin-top: 35px;
     }
   </style>
 </head>
@@ -156,13 +195,17 @@
 
 <header>
   <h1>Lamar Alhimali</h1>
-  <p>Machine Learning Portfolio | Computer Science Student</p>
-  <p>Effat University</p>
+  <h2>Machine Learning Portfolio</h2>
+  <p>
+    Early Detection of Parkinson’s Disease Using Supervised Machine Learning.
+    A healthcare AI project focused on class imbalance, model evaluation, and reliable medical screening.
+  </p>
 </header>
 
 <nav>
   <a href="#about">About</a>
   <a href="#project">Project</a>
+  <a href="#pipeline">Pipeline</a>
   <a href="#results">Results</a>
   <a href="#labs">Labs</a>
   <a href="#team">Team</a>
@@ -172,9 +215,9 @@
 <section id="about">
   <h2>About Me</h2>
   <p>
-    I am Lamar Alhimali, a Computer Science student interested in machine learning,
-    data science, and healthcare artificial intelligence. This portfolio presents my
-    Machine Learning final project, course labs, technical skills, and project results.
+    I am Lamar Alhimali, a Computer Science student at Effat University. I am interested in
+    machine learning, data science, and healthcare artificial intelligence. This portfolio presents
+    my Machine Learning final project, course labs, skills, and results in a professional format.
   </p>
 </section>
 
@@ -182,26 +225,26 @@
   <h2>Final Machine Learning Project</h2>
   <h3>Early Detection of Parkinson’s Disease Using Supervised Machine Learning</h3>
   <p>
-    This project uses supervised machine learning to support early detection of
-    Parkinson’s disease using biomedical and clinical features. The main challenge
-    addressed in this project is class imbalance, because medical datasets may contain
-    fewer disease cases than control cases.
+    This project uses supervised machine learning to support early detection of Parkinson’s disease
+    using biomedical and clinical features. The main challenge is class imbalance, because disease
+    cases may be fewer than control cases. If imbalance is not handled, the model may look accurate
+    but still miss positive Parkinson’s cases.
   </p>
 
   <div class="grid">
     <div class="card">
-      <h3>Problem</h3>
-      <p>Parkinson’s disease can be difficult to detect early because symptoms may be subtle.</p>
+      <h3>Clinical Problem</h3>
+      <p>Parkinson’s symptoms may be subtle in early stages, which can delay diagnosis and follow-up.</p>
     </div>
 
     <div class="card">
-      <h3>Goal</h3>
-      <p>Build a machine learning model that can detect Parkinson’s cases with strong recall.</p>
+      <h3>Project Goal</h3>
+      <p>Build a machine learning pipeline that detects Parkinson’s cases with strong recall.</p>
     </div>
 
     <div class="card">
-      <h3>Challenge</h3>
-      <p>Class imbalance can make models miss positive Parkinson’s cases.</p>
+      <h3>Main Challenge</h3>
+      <p>Class imbalance can cause models to favor the majority class and miss disease cases.</p>
     </div>
   </div>
 </section>
@@ -209,79 +252,62 @@
 <section>
   <h2>Dataset and Preprocessing</h2>
   <p>
-    The project used Parkinson’s disease datasets containing biomedical and clinical
-    features. Preprocessing was important to prepare the data before model training.
+    The project used Parkinson’s disease datasets containing biomedical and clinical features.
+    Preprocessing was required to prepare the data before training and to reduce bias caused by
+    imbalance.
   </p>
 
-  <ul>
-    <li>Checked missing values</li>
-    <li>Analyzed class distribution</li>
-    <li>Studied feature correlations</li>
-    <li>Removed irrelevant identifier columns</li>
-    <li>Applied encoding when needed</li>
-    <li>Applied feature scaling</li>
-    <li>Used stratified train/test split</li>
-    <li>Applied SMOTE only on the training set to handle imbalance</li>
-  </ul>
+  <div class="grid">
+    <div class="card">Missing values were checked and handled.</div>
+    <div class="card">Class distribution was analyzed.</div>
+    <div class="card">Feature correlations were studied.</div>
+    <div class="card">Irrelevant identifier columns were removed.</div>
+    <div class="card">Feature scaling was applied.</div>
+    <div class="card">SMOTE was applied only on the training set.</div>
+  </div>
 </section>
 
-<section>
+<section id="pipeline">
   <h2>Machine Learning Pipeline</h2>
-  <p>
-    <strong>
-      Raw Dataset → EDA → Data Cleaning → Preprocessing → Train/Test Split →
-      SMOTE → Model Training → Tuning → Evaluation → Final Model Selection
-    </strong>
-  </p>
+  <div class="pipeline">
+    Raw Dataset → EDA → Cleaning → Encoding & Scaling → Stratified Train/Test Split → SMOTE →
+    Model Training → Hyperparameter Tuning → Evaluation → Final Model Selection
+  </div>
+
+  <div class="note">
+    SMOTE was applied only after the train/test split to avoid data leakage and keep evaluation realistic.
+  </div>
 </section>
 
 <section>
   <h2>Models Used</h2>
-  <div class="grid">
-    <div class="card">Logistic Regression</div>
-    <div class="card">Support Vector Machine</div>
-    <div class="card">Random Forest</div>
-    <div class="card">K-Nearest Neighbors</div>
-    <div class="card">Naive Bayes</div>
-    <div class="card">Gradient Boosting</div>
-    <div class="card">Ensemble Model</div>
-  </div>
+  <span class="tag">Logistic Regression</span>
+  <span class="tag">Support Vector Machine</span>
+  <span class="tag">Random Forest</span>
+  <span class="tag">K-Nearest Neighbors</span>
+  <span class="tag">Naive Bayes</span>
+  <span class="tag">Gradient Boosting</span>
+  <span class="tag">Ensemble Model</span>
 </section>
 
 <section id="results">
   <h2>Final Model Results</h2>
   <p>
-    The final selected model was the <strong>Tuned Gradient Boosting Classifier</strong>
-    because it achieved the strongest overall results and performed well on medically
-    important metrics.
+    The final selected model was the <strong>Tuned Gradient Boosting Classifier</strong>.
+    It was selected because it achieved the strongest medically important results, especially recall,
+    F1-score, and ROC-AUC.
   </p>
 
   <div class="grid">
-    <div class="metric">
-      <p>Recall</p>
-      <h3>0.954</h3>
-    </div>
-
-    <div class="metric">
-      <p>F1-score</p>
-      <h3>0.913</h3>
-    </div>
-
-    <div class="metric">
-      <p>ROC-AUC</p>
-      <h3>0.966</h3>
-    </div>
-
-    <div class="metric">
-      <p>Accuracy</p>
-      <h3>0.867</h3>
-    </div>
+    <div class="metric">Recall <span>0.954</span></div>
+    <div class="metric">F1-score <span>0.913</span></div>
+    <div class="metric">ROC-AUC <span>0.966</span></div>
+    <div class="metric">Accuracy <span>0.867</span></div>
   </div>
 </section>
 
 <section>
   <h2>Model Comparison</h2>
-
   <table>
     <tr>
       <th>Model</th>
@@ -291,7 +317,6 @@
       <th>F1-score</th>
       <th>ROC-AUC</th>
     </tr>
-
     <tr>
       <td>Logistic Regression</td>
       <td>0.850</td>
@@ -300,7 +325,6 @@
       <td>0.810</td>
       <td>0.840</td>
     </tr>
-
     <tr>
       <td>Support Vector Machine</td>
       <td>0.880</td>
@@ -309,7 +333,6 @@
       <td>0.840</td>
       <td>0.870</td>
     </tr>
-
     <tr>
       <td>Random Forest</td>
       <td>0.910</td>
@@ -318,7 +341,6 @@
       <td>0.880</td>
       <td>0.920</td>
     </tr>
-
     <tr>
       <td>KNN</td>
       <td>0.830</td>
@@ -327,7 +349,6 @@
       <td>0.780</td>
       <td>0.820</td>
     </tr>
-
     <tr>
       <td>Naive Bayes</td>
       <td>0.810</td>
@@ -336,8 +357,7 @@
       <td>0.760</td>
       <td>0.800</td>
     </tr>
-
-    <tr class="highlight">
+    <tr class="winner">
       <td>Gradient Boosting</td>
       <td>0.867</td>
       <td>0.875</td>
@@ -351,29 +371,25 @@
 <section>
   <h2>Why Gradient Boosting Was Selected</h2>
   <p>
-    Gradient Boosting was selected because it achieved the highest recall, F1-score,
-    and ROC-AUC. Recall is especially important in medical screening because missing
-    a real Parkinson’s case may delay follow-up and treatment.
+    Gradient Boosting was selected because it achieved the highest recall, F1-score, and ROC-AUC.
+    In medical screening, recall is very important because a false negative means a real Parkinson’s
+    case may be missed. The model also showed strong class separation with ROC-AUC of 0.966.
   </p>
 </section>
 
 <section>
   <h2>Key Findings</h2>
   <ul>
-    <li>Class imbalance was an important challenge in the dataset.</li>
-    <li>SMOTE improved the model’s ability to detect Parkinson’s cases.</li>
-    <li>Accuracy alone was not enough for evaluating medical screening models.</li>
-    <li>Recall, F1-score, and ROC-AUC were more important for this healthcare task.</li>
-    <li>Gradient Boosting gave the best balance for early Parkinson’s disease screening.</li>
+    <li>Class imbalance was one of the most important challenges in this project.</li>
+    <li>SMOTE improved the ability of the model to detect Parkinson’s cases.</li>
+    <li>Accuracy alone was not enough for evaluating a healthcare screening model.</li>
+    <li>Recall, F1-score, and ROC-AUC were more meaningful for medical interpretation.</li>
+    <li>Gradient Boosting achieved the best balance for early Parkinson’s disease detection.</li>
   </ul>
 </section>
 
 <section id="labs">
   <h2>Course Labs</h2>
-  <p>
-    During the Machine Learning course, I practiced core skills through labs and notebooks.
-  </p>
-
   <div class="grid">
     <div class="card">
       <h3>Lab 3</h3>
@@ -394,17 +410,16 @@
 
 <section>
   <h2>Skills Used</h2>
-  <div class="grid">
-    <div class="card">Python</div>
-    <div class="card">Pandas</div>
-    <div class="card">NumPy</div>
-    <div class="card">Matplotlib</div>
-    <div class="card">Seaborn</div>
-    <div class="card">Scikit-learn</div>
-    <div class="card">SMOTE</div>
-    <div class="card">EDA</div>
-    <div class="card">Model Evaluation</div>
-  </div>
+  <span class="tag">Python</span>
+  <span class="tag">Pandas</span>
+  <span class="tag">NumPy</span>
+  <span class="tag">Matplotlib</span>
+  <span class="tag">Seaborn</span>
+  <span class="tag">Scikit-learn</span>
+  <span class="tag">SMOTE</span>
+  <span class="tag">EDA</span>
+  <span class="tag">Model Evaluation</span>
+  <span class="tag">GitHub Pages</span>
 </section>
 
 <section id="team">
@@ -420,21 +435,16 @@
 <section id="links" class="links">
   <h2>Project Links</h2>
 
-  <a href="https://lamarghgh-maker.github.io/lamar-portfolio/" target="_blank">
-    Portfolio Website
-  </a>
+  <a href="https://lamarghgh-maker.github.io/lamar-portfolio/" target="_blank">Portfolio Website</a>
+  <a href="https://github.com/lamarghgh-maker/lamar-portfolio" target="_blank">GitHub Repository</a>
 
-  <a href="https://github.com/lamarghgh-maker/lamar-portfolio" target="_blank">
-    GitHub Repository
-  </a>
-
-  <p style="margin-top:15px;">
+  <p style="margin-top: 15px;">
     Add your technical report PDF, poster, and presentation links here after uploading them.
   </p>
 </section>
 
 <footer>
-  <p>© 2026 Lamar Alhimali | Machine Learning Portfolio</p>
+  <p>© 2026 Lamar Alhimali | Machine Learning Portfolio | Effat University</p>
 </footer>
 
 </body>
