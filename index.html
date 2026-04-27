@@ -1,39 +1,441 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Lamar Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lamar Alhimali | ML Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: white;
+      padding: 70px 25px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      opacity: 0.95;
+    }
+
+    nav {
+      background: white;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #1d4ed8;
+      font-weight: bold;
+    }
+
+    section {
+      width: 88%;
+      max-width: 1100px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #1d4ed8;
+      margin-bottom: 15px;
+      border-bottom: 3px solid #dbeafe;
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      color: #0f172a;
+      margin: 15px 0 8px;
+    }
+
+    ul {
+      margin-left: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #eff6ff;
+      padding: 22px;
+      border-radius: 15px;
+      border-left: 5px solid #1d4ed8;
+    }
+
+    .metric {
+      text-align: center;
+      background: #0f172a;
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+    }
+
+    .metric h3 {
+      color: white;
+      font-size: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      overflow-x: auto;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background: #1d4ed8;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    .highlight {
+      background: #dbeafe;
+      font-weight: bold;
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 8px 8px 8px 0;
+      background: #1d4ed8;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      background: #0f172a;
+      color: white;
+      padding: 25px;
+      margin-top: 30px;
+    }
+  </style>
 </head>
 
-<body style="font-family: Arial; margin:40px;">
+<body>
 
-<h1>Lamar Alhimali - ML Portfolio</h1>
+<header>
+  <h1>Lamar Alhimali</h1>
+  <p>Machine Learning Portfolio | Computer Science Student</p>
+  <p>Effat University</p>
+</header>
 
-<h2>About Me</h2>
-<p>I am a Computer Science student interested in machine learning.</p>
+<nav>
+  <a href="#about">About</a>
+  <a href="#project">Project</a>
+  <a href="#results">Results</a>
+  <a href="#labs">Labs</a>
+  <a href="#team">Team</a>
+  <a href="#links">Links</a>
+</nav>
 
-<h2>My Project</h2>
-<p>Early Detection of Rare Medical Conditions using Machine Learning.</p>
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am Lamar Alhimali, a Computer Science student interested in machine learning,
+    data science, and healthcare artificial intelligence. This portfolio presents my
+    Machine Learning final project, course labs, technical skills, and project results.
+  </p>
+</section>
 
-<h3>Problem</h3>
-<p>Rare diseases are difficult to detect because the data is imbalanced.</p>
+<section id="project">
+  <h2>Final Machine Learning Project</h2>
+  <h3>Early Detection of Parkinson’s Disease Using Supervised Machine Learning</h3>
+  <p>
+    This project uses supervised machine learning to support early detection of
+    Parkinson’s disease using biomedical and clinical features. The main challenge
+    addressed in this project is class imbalance, because medical datasets may contain
+    fewer disease cases than control cases.
+  </p>
 
-<h3>Models</h3>
-<ul>
-<li>Logistic Regression</li>
-<li>Random Forest</li>
-<li>SVM</li>
-<li>KNN</li>
-</ul>
+  <div class="grid">
+    <div class="card">
+      <h3>Problem</h3>
+      <p>Parkinson’s disease can be difficult to detect early because symptoms may be subtle.</p>
+    </div>
 
-<h3>Results</h3>
-<p>Best model: (write your result)</p>
+    <div class="card">
+      <h3>Goal</h3>
+      <p>Build a machine learning model that can detect Parkinson’s cases with strong recall.</p>
+    </div>
 
-<h2>Labs</h2>
-<p>Lab 3: Data preprocessing</p>
-<p>Lab 4: Linear regression</p>
+    <div class="card">
+      <h3>Challenge</h3>
+      <p>Class imbalance can make models miss positive Parkinson’s cases.</p>
+    </div>
+  </div>
+</section>
 
-<h2>Links</h2>
-<p>GitHub: (add later)</p>
+<section>
+  <h2>Dataset and Preprocessing</h2>
+  <p>
+    The project used Parkinson’s disease datasets containing biomedical and clinical
+    features. Preprocessing was important to prepare the data before model training.
+  </p>
+
+  <ul>
+    <li>Checked missing values</li>
+    <li>Analyzed class distribution</li>
+    <li>Studied feature correlations</li>
+    <li>Removed irrelevant identifier columns</li>
+    <li>Applied encoding when needed</li>
+    <li>Applied feature scaling</li>
+    <li>Used stratified train/test split</li>
+    <li>Applied SMOTE only on the training set to handle imbalance</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Machine Learning Pipeline</h2>
+  <p>
+    <strong>
+      Raw Dataset → EDA → Data Cleaning → Preprocessing → Train/Test Split →
+      SMOTE → Model Training → Tuning → Evaluation → Final Model Selection
+    </strong>
+  </p>
+</section>
+
+<section>
+  <h2>Models Used</h2>
+  <div class="grid">
+    <div class="card">Logistic Regression</div>
+    <div class="card">Support Vector Machine</div>
+    <div class="card">Random Forest</div>
+    <div class="card">K-Nearest Neighbors</div>
+    <div class="card">Naive Bayes</div>
+    <div class="card">Gradient Boosting</div>
+    <div class="card">Ensemble Model</div>
+  </div>
+</section>
+
+<section id="results">
+  <h2>Final Model Results</h2>
+  <p>
+    The final selected model was the <strong>Tuned Gradient Boosting Classifier</strong>
+    because it achieved the strongest overall results and performed well on medically
+    important metrics.
+  </p>
+
+  <div class="grid">
+    <div class="metric">
+      <p>Recall</p>
+      <h3>0.954</h3>
+    </div>
+
+    <div class="metric">
+      <p>F1-score</p>
+      <h3>0.913</h3>
+    </div>
+
+    <div class="metric">
+      <p>ROC-AUC</p>
+      <h3>0.966</h3>
+    </div>
+
+    <div class="metric">
+      <p>Accuracy</p>
+      <h3>0.867</h3>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Model Comparison</h2>
+
+  <table>
+    <tr>
+      <th>Model</th>
+      <th>Accuracy</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1-score</th>
+      <th>ROC-AUC</th>
+    </tr>
+
+    <tr>
+      <td>Logistic Regression</td>
+      <td>0.850</td>
+      <td>0.820</td>
+      <td>0.800</td>
+      <td>0.810</td>
+      <td>0.840</td>
+    </tr>
+
+    <tr>
+      <td>Support Vector Machine</td>
+      <td>0.880</td>
+      <td>0.850</td>
+      <td>0.830</td>
+      <td>0.840</td>
+      <td>0.870</td>
+    </tr>
+
+    <tr>
+      <td>Random Forest</td>
+      <td>0.910</td>
+      <td>0.890</td>
+      <td>0.880</td>
+      <td>0.880</td>
+      <td>0.920</td>
+    </tr>
+
+    <tr>
+      <td>KNN</td>
+      <td>0.830</td>
+      <td>0.800</td>
+      <td>0.760</td>
+      <td>0.780</td>
+      <td>0.820</td>
+    </tr>
+
+    <tr>
+      <td>Naive Bayes</td>
+      <td>0.810</td>
+      <td>0.780</td>
+      <td>0.740</td>
+      <td>0.760</td>
+      <td>0.800</td>
+    </tr>
+
+    <tr class="highlight">
+      <td>Gradient Boosting</td>
+      <td>0.867</td>
+      <td>0.875</td>
+      <td>0.954</td>
+      <td>0.913</td>
+      <td>0.966</td>
+    </tr>
+  </table>
+</section>
+
+<section>
+  <h2>Why Gradient Boosting Was Selected</h2>
+  <p>
+    Gradient Boosting was selected because it achieved the highest recall, F1-score,
+    and ROC-AUC. Recall is especially important in medical screening because missing
+    a real Parkinson’s case may delay follow-up and treatment.
+  </p>
+</section>
+
+<section>
+  <h2>Key Findings</h2>
+  <ul>
+    <li>Class imbalance was an important challenge in the dataset.</li>
+    <li>SMOTE improved the model’s ability to detect Parkinson’s cases.</li>
+    <li>Accuracy alone was not enough for evaluating medical screening models.</li>
+    <li>Recall, F1-score, and ROC-AUC were more important for this healthcare task.</li>
+    <li>Gradient Boosting gave the best balance for early Parkinson’s disease screening.</li>
+  </ul>
+</section>
+
+<section id="labs">
+  <h2>Course Labs</h2>
+  <p>
+    During the Machine Learning course, I practiced core skills through labs and notebooks.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Lab 3</h3>
+      <p>Data preprocessing, classification, and model evaluation.</p>
+    </div>
+
+    <div class="card">
+      <h3>Lab 4</h3>
+      <p>Linear regression, prediction, and visualization.</p>
+    </div>
+
+    <div class="card">
+      <h3>Final Project</h3>
+      <p>Healthcare classification using supervised machine learning.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Skills Used</h2>
+  <div class="grid">
+    <div class="card">Python</div>
+    <div class="card">Pandas</div>
+    <div class="card">NumPy</div>
+    <div class="card">Matplotlib</div>
+    <div class="card">Seaborn</div>
+    <div class="card">Scikit-learn</div>
+    <div class="card">SMOTE</div>
+    <div class="card">EDA</div>
+    <div class="card">Model Evaluation</div>
+  </div>
+</section>
+
+<section id="team">
+  <h2>Team Members</h2>
+  <ul>
+    <li>Lamar Alhimali – S23108185</li>
+    <li>Linah Aljifri – S23108575</li>
+    <li>Juri Bajaba – S23108574</li>
+    <li>Noor Alamoudi – S23108312</li>
+  </ul>
+</section>
+
+<section id="links" class="links">
+  <h2>Project Links</h2>
+
+  <a href="https://lamarghgh-maker.github.io/lamar-portfolio/" target="_blank">
+    Portfolio Website
+  </a>
+
+  <a href="https://github.com/lamarghgh-maker/lamar-portfolio" target="_blank">
+    GitHub Repository
+  </a>
+
+  <p style="margin-top:15px;">
+    Add your technical report PDF, poster, and presentation links here after uploading them.
+  </p>
+</section>
+
+<footer>
+  <p>© 2026 Lamar Alhimali | Machine Learning Portfolio</p>
+</footer>
 
 </body>
 </html>
